@@ -6,7 +6,7 @@ const Button = styled('button', {
   backgroundColor : '$rocketseat',
   borderRadius : 4,
   border : 0,
-  padding : '4px, 8px',
+  padding : '4px, 8px, 4px, 8px',
 
 
   span: {
@@ -22,10 +22,9 @@ export default function Home() {
   return (
     <>
       <Button>
-        <span>777</span>  
-        Enviar
+          <span>777</span>  
+          Enviar
       </Button> 
-      
     </>
   )
 }
