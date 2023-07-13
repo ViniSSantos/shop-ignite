@@ -1,23 +1,17 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import styles from './LoginForm.module.css'; // Estilos CSS
 
-interface Login<T> extends FormEvent<T> {
-  errors: { [key: string]: string };
-}
-
 const LoginForm = () => {
-  const [email, setEmail] = useState<string>('');
+  const [user, setUser] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [passwordError, setPasswordError] = useState<string>('');
 
-  const handleSignIn = async (event: Login<HTMLFormElement>) => {
+  const handleSignIn = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const errors = event.errors;
-
     // Verifica se os campos estão preenchidos
-    if (!email || !password) {
+    if (!user || !password) {
       setErrorMsg('Por favor, preencha os dados');
       return;
     }
@@ -29,7 +23,7 @@ const LoginForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ user, password }),
       });
 
       if (response.ok) {
@@ -39,7 +33,7 @@ const LoginForm = () => {
         // Redirecionar para dentro do portal
         console.log('Successful login');
       } else {
-        setErrorMsg('Invalid email or password');
+        setErrorMsg('Invalid user or password');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -47,8 +41,8 @@ const LoginForm = () => {
     }
   };
 
-  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
+  const handleUserChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setUser(event.target.value);
   };
 
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -62,12 +56,12 @@ const LoginForm = () => {
       <form onSubmit={handleSignIn}>
         <label>
           <input
-            type="email"
-            name="email"
+            type="text"
+            name="user"
             placeholder="Username"
-            autoComplete="email"
-            value={email}
-            onChange={handleEmailChange}
+            autoComplete="username"
+            value={user}
+            onChange={handleUserChange}
           />
         </label>
         <label>
