@@ -31,16 +31,16 @@ const LoginForm = () => {
         // por exemplo, definindo um token de autenticação no local storage
 
         // Redirecionar para dentro do portal
-        console.log('Successful login');
+        console.log('SUcesso!!');
       } else {
-        setErrorMsg('Invalid user or password');
+        setErrorMsg('Ivalido usuario ou senha');
       }
     } catch (error) {
       console.error('Error:', error);
-      setErrorMsg('An error occurred. Please try again.');
+      setErrorMsg('Um erro ocorreu, tente outa vez');
     }
   };
-
+  
   const handleUserChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUser(event.target.value);
   };
