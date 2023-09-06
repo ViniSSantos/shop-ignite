@@ -1,3 +1,4 @@
+/*
 import { styled } from ".."
 
 export const Container = styled('div', {
@@ -14,3 +15,4 @@ export const Header = styled('header', {
     maxWidth: 1180,
     margin: '0 auto',
 })
+*/
