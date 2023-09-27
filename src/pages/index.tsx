@@ -1,7 +1,10 @@
 //File-System Routing
 //Roteamento baseados em arquivos físicos.
-import { styled } from "../styles";
+//import { styled } from "../styles";
 
+import  SignIn  from "./SignIn";
+
+/*
 const Button = styled('button', {
   backgroundColor : '$rocketseat',
   borderRadius : 4,
@@ -17,14 +20,11 @@ const Button = styled('button', {
     filter: 'brightness(0.8)',
   },
 })
-
+*/
 export default function Home() {
   return (
-    <>
-      <Button>
-          <span>777</span>  
-          Enviar
-      </Button> 
-    </>
+   <>
+   <SignIn></SignIn>
+   </>
   )
 }
